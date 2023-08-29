@@ -283,6 +283,7 @@ public class Main {
 ```
 
 > 인터페이스 분리 원칙을 따르는 설계는 코드의 모듈화와 유연성을 높이며, 개별 클래스가 명확한 역할을 수행하도록 도와준다.
+>
 
 **클래스 (Class):**
 
@@ -314,6 +315,45 @@ public class Main {
 자동차는 스노우타이어에 의존하고 있다.
 
 ![image](https://github.com/noxknow/Web_development_knowledge/assets/122594223/9c486f4c-0c60-4df4-bf90-e4a8959b8c74)
+
+```java
+// 타이어 인터페이스
+interface 타이어 {
+    void 회전();
+}
+
+// 스노우 타이어 클래스 (타이어 인터페이스를 구현)
+class 스노우타이어 implements 타이어 {
+    @Override
+    public void 회전() {
+        System.out.println("스노우타이어가 회전합니다.");
+        // 스노우타이어의 회전 동작 구현
+    }
+}
+
+// 자동차 클래스 (타이어 인터페이스에 의존)
+class 자동차 {
+    private final 타이어 타이어;
+
+    public 자동차(타이어 타이어) {
+        this.타이어 = 타이어;
+    }
+
+    public void 주행() {
+        System.out.println("자동차가 주행합니다.");
+        타이어.회전(); // 타이어에 구체적인 구현에 의존하지 않음
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        타이어 스노우타이어 = new 스노우타이어();
+        자동차 자동차 = new 자동차(스노우타이어);
+        
+        자동차.주행(); // 자동차가 주행합니다. 스노우타이어가 회전합니다.
+    }
+}
+```
 
 해당 관계를 타이어 인터페이스로 역전 시킨다. 이것이 의존성 주입(DI)이다.
 
