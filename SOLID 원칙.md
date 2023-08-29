@@ -7,7 +7,7 @@
 > "한 클래스는 하나의 책임만 가져야 한다."
 > 
 
-하나의 책임이란 말은 문맥과 상황에 따른 모호한 말이다. 중요한 기준은 **'변경'**이다.
+하나의 책임이란 말은 문맥과 상황에 따른 모호한 말이다. 중요한 기준은 **변경**이다.
 
 변경이 있을 때 파급 효과가 적으면 단일 책임 원칙을 잘 따른 것이라 말할 수 있다.
 
@@ -222,6 +222,65 @@ SRP가 클래스의 단일책임을 강조했다면 ISP는 인터페이스의 �
 ISP를 적용하면 다양한 역할을 인터페이스로 만들고, 남자 클래스는 그 인터페이스를 구현한 클래스로 만들 수 있다.
 
 ![image](https://github.com/noxknow/Web_development_knowledge/assets/122594223/2f4380f7-3698-4f63-83da-a2ad7398218a)
+
+```java
+// 남자친구 인터페이스
+interface 남자친구 {
+    void 기념일챙기기();
+}
+
+// 아들 인터페이스
+interface 아들 {
+    void 효도하기();
+    void 안마하기();
+}
+
+// 사원 인터페이스
+interface 사원 {
+    void 출근하기();
+    void 퇴근하기();
+}
+
+// 남자 클래스
+class 남자 implements 남자친구, 아들, 사원 {
+    @Override
+    public void 기념일챙기기() {
+        System.out.println("기념일을 챙깁니다.");
+    }
+
+    @Override
+    public void 효도하기() {
+        System.out.println("부모님께 효도합니다.");
+    }
+
+    @Override
+    public void 안마하기() {
+        System.out.println("안마를 해줍니다.");
+    }
+
+    @Override
+    public void 출근하기() {
+        System.out.println("출근합니다.");
+    }
+
+    @Override
+    public void 퇴근하기() {
+        System.out.println("퇴근합니다.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        남자 man = new 남자();
+        
+        man.기념일챙기기();
+        man.효도하기();
+        man.안마하기();
+        man.출근하기();
+        man.퇴근하기();
+    }
+}
+```
 
 ---
 
