@@ -1,6 +1,4 @@
-![image](https://github.com/noxknow/Web_development_knowledge/assets/122594223/12b40ffa-e49a-41e9-ad93-b14a2191458c)(참조 : https://happycloud-lee.tistory.com/261?category=8322466)
-
-![image](https://github.com/noxknow/Web_development_knowledge/assets/122594223/e6b8617d-7bb8-4970-be13-6483eec43dd7)
+(참조 : https://happycloud-lee.tistory.com/261?category=8322466)
 
 ## 최근의 변화
 
